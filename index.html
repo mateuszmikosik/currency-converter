@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik walut</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="body">
+    <section class="converter">
+        <form class="form js-form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend"> Przelicznik walut </legend>
+                <div class="form__baseValue">
+                    <span class="form__enterBaseValue"> Wpisz wartość w PLN: </span>
+                    <input type="number" min="0" step="any" class="form__input js-base-value">
+                </div>
+                <div class="form__convertedValue">
+                    <select class="form__selectCurrency js-selected-currency">
+                        <option value="EUR">€ EUR</option>
+                        <option value="USD">$ USD</option>
+                        <option value="GBP">£ GBP </option>
+                    </select>
+                    <span class="form__result js-result"> 0.00 </span>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>
