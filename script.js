@@ -1,39 +1,42 @@
-let baseValueElement = document.querySelector(".js-base-value");
-let formElement = document.querySelector(".js-form");
-let currencyElement = document.querySelector(".js-selected-currency");
-let resultElement = document.querySelector(".js-result");
-
-let EUR = 4.69;
-let USD = 4.39;
-let GBP = 5.28;
-
-formElement.addEventListener("input", () => {
-    
-    let baseValue = baseValueElement.value;
-    let selectedCurrency = currencyElement.value;
-    let result = resultElement.value;
+{
+const calculateResult = (baseValue, selectedCurrency) => {
+    const EUR = 4.69;
+    const USD = 4.39;
+    const GBP = 5.28;
 
     switch(selectedCurrency) {
         case "EUR":
-            result = baseValue / EUR;
-            break;
+            return baseValue / EUR;
     
         case "USD":
-            result = baseValue / USD ;
-            break;
+            return baseValue / USD;
     
         case "GBP":
-            result = baseValue / GBP;
-            break;
-    }
+            return baseValue / GBP;
+}}
 
-    if (baseValueElement.value>=0) {
-    resultElement.innerText = result.toFixed(2);
-    } else {
-        resultElement.innerText = "Wartość nie może być ujemna!";
-    }
+const onFormInput = () => {
+    const baseValueElement = document.querySelector(".js-base-value");
+    const currencyElement = document.querySelector(".js-selected-currency");
+    const resultElement = document.querySelector(".js-result");    
+    const baseValue = baseValueElement.value;
+    const selectedCurrency = currencyElement.value;
+    let result = calculateResult(baseValue,selectedCurrency);
+    
+        if (baseValueElement.value>=0) {
+        resultElement.innerText = result.toFixed(2);
+        } else {
+            resultElement.innerText = "Wartość nie może być ujemna!";
+        }
+    };
 
-
-})
+const init = () => {
+    const formElement = document.querySelector(".js-form");
+    formElement.addEventListener("input", onFormInput);
+};
+init();
+}
+        
+        
 
 
